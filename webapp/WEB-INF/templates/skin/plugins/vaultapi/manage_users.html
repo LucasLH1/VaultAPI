@@ -1,0 +1,53 @@
+<#include "useraccount_tabs.html" />
+<@tabs2 tab="user" />
+
+<@row>
+	<@columns>
+		<@messages infos=infos />
+		<@tform action='jsp/site/Portal.jsp?page=user'>
+			<@button type='submit' name='view_createUser' class='pull-right' buttonIcon='plus' title='#i18n{vaultapi.manage_users.buttonAdd}' />
+		</@tform>
+
+    	<h4>#i18n{vaultapi.manage_users.title}</h4>
+        
+    	<@table>
+			<tr>
+					<th>#i18n{vaultapi.manage_users.columnFirstname}</th>
+					<th>#i18n{vaultapi.manage_users.columnLastname}</th>
+					<th>#i18n{vaultapi.manage_users.columnPassword}</th>
+					<th>#i18n{vaultapi.manage_users.columnEmail}</th>
+					<th>#i18n{vaultapi.manage_users.columnBirthdate}</th>
+					<th>#i18n{vaultapi.manage_users.columnFirm}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+        	</tr>
+				<#list user_list as user >
+        	<tr>
+            <td>
+					${user.firstname}
+            </td>    
+            <td>
+					${user.lastname}
+            </td>    
+            <td>
+					${user.password}
+            </td>    
+            <td>
+					${user.email}
+            </td>    
+            <td>
+					${user.birthdate}
+            </td>    
+            <td>
+					${user.firm}
+            </td>    
+			<td>
+				<@aButton href='jsp/site/Portal.jsp?page=user&view=modifyUser&id=${user.id}' title='#i18n{portal.util.labelModify}' hideTitle=['all'] buttonIcon='pencil-square-o' />
+						
+				<@aButton href='jsp/site/Portal.jsp?page=user&action=confirmRemoveUser&id=${user.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' hideTitle=['all'] color='btn-danger' />
+			</td>
+        </tr>
+        </#list>
+    	</@table>
+	</@columns>
+</@row>
+

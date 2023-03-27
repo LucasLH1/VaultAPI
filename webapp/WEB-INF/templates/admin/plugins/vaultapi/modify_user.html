@@ -1,0 +1,34 @@
+<#include "manageuser_tabs.html" />
+<@tabs2 tab="user" />
+
+
+<@box>
+	<@boxHeader title='#i18n{vaultapi.modify_user.title}' />
+	<@boxBody>
+    <@tform class="form-horizontal" method="post" name="modify_user" action="jsp/admin/plugins/vaultapi/ManageUsers.jsp" >
+			<@messages errors=errors />
+			<@input type="hidden" id="id" name="id" value="${user.id}"/>
+			<@input type="hidden" value="${token}" name="token" />
+			
+			<@formGroup labelFor='firstname' labelKey='#i18n{vaultapi.modify_user.labelFirstname}' mandatory=true>
+				<@input type='text' id='firstname' name='firstname'  maxlength=50 value='${user.firstname!\'\'}' tabIndex='0' />
+			</@formGroup>
+			<@formGroup labelFor='lastname' labelKey='#i18n{vaultapi.modify_user.labelLastname}' mandatory=true>
+				<@input type='text' id='lastname' name='lastname'  maxlength=50 value='${user.lastname!\'\'}' tabIndex='1' />
+			</@formGroup>
+			<@formGroup labelFor='password' labelKey='#i18n{vaultapi.modify_user.labelPassword}' mandatory=true>
+				<@input type='text' id='password' name='password'  maxlength=50 value='${user.password!\'\'}' tabIndex='2' />
+			</@formGroup>
+			<@formGroup labelFor='email' labelKey='#i18n{vaultapi.modify_user.labelEmail}' mandatory=true>
+				<@input type='text' id='email' name='email'  maxlength=255 value='${user.email!\'\'}' tabIndex='3' />
+			</@formGroup>
+			<@formGroup labelFor='birthdate' labelKey='#i18n{vaultapi.modify_user.labelBirthdate}' mandatory=true>
+				<@input type='text' id='birthdate' name='birthdate'  value='${user.birthdate!\'\'}' tabIndex='4' />
+			</@formGroup>
+			<@formGroup labelFor='firm' labelKey='#i18n{vaultapi.modify_user.labelFirm}' mandatory=true>
+				<@input type='text' id='firm' name='firm'  maxlength=50 value='${user.firm!\'\'}' tabIndex='5' />
+			</@formGroup>
+        <@actionButtons button1Name="action_modifyUser" button2Name="view_manageUser"/>
+    </@tform>
+	</@boxBody>
+</@box>

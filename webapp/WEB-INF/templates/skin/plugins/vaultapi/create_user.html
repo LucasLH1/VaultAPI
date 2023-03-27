@@ -1,0 +1,38 @@
+<#include "useraccount_tabs.html" />
+<@tabs2 tab="user" />
+
+<@box>
+	<@boxHeader title='#i18n{vaultapi.modify_user.title}' />
+	<@boxBody>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp' >
+				<@messages errors=errors />
+				<@input type="hidden" id="id" name="id"/>
+				<@input type="hidden" value="${token}" name="token" />
+				<@input type="hidden" name="page" value="user" /> 
+
+          		<@formGroup labelFor='firstname' labelKey='#i18n{vaultapi.create_user.labelFirstname}' helpKey='#i18n{vaultapi.create_user.labelFirstname.help}' mandatory=true>
+					<@input type="text" id="firstname" name="firstname" value="${user.firstname!''}"  maxlength=50 tabIndex="1" />
+				</@formGroup>
+          		<@formGroup labelFor='lastname' labelKey='#i18n{vaultapi.create_user.labelLastname}' helpKey='#i18n{vaultapi.create_user.labelLastname.help}' mandatory=true>
+					<@input type="text" id="lastname" name="lastname" value="${user.lastname!''}"  maxlength=50 tabIndex="2" />
+				</@formGroup>
+          		<@formGroup labelFor='password' labelKey='#i18n{vaultapi.create_user.labelPassword}' helpKey='#i18n{vaultapi.create_user.labelPassword.help}' mandatory=true>
+					<@input type="text" id="password" name="password" value="${user.password!''}"  maxlength=50 tabIndex="3" />
+				</@formGroup>
+          		<@formGroup labelFor='email' labelKey='#i18n{vaultapi.create_user.labelEmail}' helpKey='#i18n{vaultapi.create_user.labelEmail.help}' mandatory=true>
+					<@input type="text" id="email" name="email" value="${user.email!''}"  maxlength=255 tabIndex="4" />
+				</@formGroup>
+          		<@formGroup labelFor='birthdate' labelKey='#i18n{vaultapi.create_user.labelBirthdate}' helpKey='#i18n{vaultapi.create_user.labelBirthdate.help}' mandatory=true>
+					<@input type="text" id="birthdate" name="birthdate" value="${user.birthdate!''}"  tabIndex="5" />
+				</@formGroup>
+          		<@formGroup labelFor='firm' labelKey='#i18n{vaultapi.create_user.labelFirm}' helpKey='#i18n{vaultapi.create_user.labelFirm.help}' mandatory=true>
+					<@input type="text" id="firm" name="firm" value="${user.firm!''}"  maxlength=50 tabIndex="6" />
+				</@formGroup>
+        		<@formGroup>
+          			<@button name='action_createUser' type='submit' tabIndex='6' title='#i18n{portal.util.labelCreate}' buttonIcon='plus' />
+					<@button name='view_manageUsers' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' cancel=true />
+				</@formGroup>
+    </@tform>
+	</@boxBody>
+</@box>
+
