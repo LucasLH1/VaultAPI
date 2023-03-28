@@ -12,8 +12,6 @@ import com.bettercloud.vault.response.LogicalResponse;
 
 public class VaultDriver implements Serializable {
 	
-	
-	
 	private static Vault _vault;
 	
 	
@@ -78,15 +76,12 @@ public class VaultDriver implements Serializable {
 	}
 	
 	
-	public static void writeLogical(String firstname, String lastname, String firm) throws VaultException {
+	public static void writeSecret(String secret, String value, String path) throws VaultException {
 		final Map<String, Object> secrets = new HashMap<String, Object>();
-		secrets.put("firstname", firstname);
-		secrets.put("lastname", lastname);
-		secrets.put("firm", firm);
-
+		secrets.put(secret, value);
 		// Write operation
 		final LogicalResponse writeResponse = VaultDriver.initDriver(_vault).logical()
-		                                        .write("secret/"+firm, secrets);
+		                                        .write("secret/"+path, secrets);
 	}
 	
 }

@@ -41,20 +41,10 @@ import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.util.ReferenceList;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 import java.util.List;
 import java.util.Optional;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.*;  
 
-import org.json.simple.JSONObject;
-
-import com.google.errorprone.annotations.Var;
 
 /**
  * This class provides instances management methods (create, find, ...) for User objects

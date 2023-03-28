@@ -47,27 +47,18 @@ import fr.paris.lutece.util.url.UrlItem;
 import fr.paris.lutece.util.html.AbstractPaginator;
 
 import java.util.Comparator;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.http.HttpClient;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
-
-import com.bettercloud.vault.VaultException;
-import com.google.gson.Gson;
 
 import fr.paris.lutece.plugins.vaultapi.business.User;
 import fr.paris.lutece.plugins.vaultapi.business.UserHome;
-import fr.paris.lutece.plugins.vaultapi.business.VaultDriver;
-import fr.paris.lutece.plugins.vaultapi.rs.VaultAPI;
+
 
 /**
  * This class provides the user interface to manage User features ( manage, create, modify, remove )
@@ -211,21 +202,10 @@ public class UserJspBean extends AbstractManageUserJspBean <Integer, User>
             return redirectView( request, VIEW_CREATE_USER );
         }     
 
-        
-        
         UserHome.create( _user );
         addInfo( INFO_USER_CREATED, getLocale(  ) );
-        
-//        try {
-//			VaultDriver.writeLogical(_user.getFirstname(), _user.getLastname(), _user.getFirm());
-//		} catch (VaultException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-        
-        resetListId( );
-        
 
+        resetListId( );
         return redirectView( request, VIEW_MANAGE_USERS );
     }
    

@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.http.HttpRequest;
 import java.sql.Date;
 import java.util.Scanner;
 

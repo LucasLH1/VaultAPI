@@ -90,7 +90,6 @@ public void testJspBeans(  ) throws AccessDeniedException, IOException
 		response = new MockHttpServletResponse( );
 		AdminUser adminUser = new AdminUser( );
 		adminUser.setAccessCode( "admin" );
-		
         
         request.addParameter( "firstname" , FIRSTNAME1 );
         request.addParameter( "lastname" , LASTNAME1 );
